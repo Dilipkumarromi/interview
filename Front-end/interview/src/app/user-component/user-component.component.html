@@ -1,0 +1,73 @@
+<div class=" container">
+    <div class="row">
+        <div class="col-md-8">
+            <div class="center">
+                <h4>User data list</h4>
+                 
+            
+                <table class="table border" *ngFor="let item of userData">
+                    
+                  <td>
+                    <tr>ID</tr>
+                    <tr>{{item.id}}</tr>
+                  </td>
+                  <td>
+                    <tr>FirstName</tr>
+                    <tr>{{item.firstName}}</tr>
+                  </td>
+                  <td>
+                    <tr>Last</tr>
+                    <tr>{{item.lastName}}</tr>
+                  </td>
+                  <td>
+                    <tr>Email</tr>
+                    <tr>{{item.email}}</tr>
+                  </td>
+                  <td>
+                    <tr> 
+                        <img src={{url}}{{item.image}} width="50px" height="50px"  class="img-circle"/>
+                    </tr>
+                  </td>
+                  <td>
+                    <tr>
+                        <button type="button" class="btn btn-outline-primary">Update</button>
+                        <button type="button" class="btn btn-outline-success" (click)="UserDelete(item.id)">Delete</button>
+                        <!-- <button type="button" class="btn btn-outline-info" (click)="UserDelete(myForm)">Share</button> -->
+                    </tr>
+                  </td>
+                </table>
+                
+                </div>
+        </div>
+        <div class="col-md-4">
+            <h4>Create Account</h4>
+        <form #myForm="ngForm" >
+            <div class="mb-3">
+                <label  class="form-label">firstName</label>
+                <input type="text" class="form-control"   ngModel name="firstName" placeholder="firstName">
+              </div>
+              <div class="mb-3">
+                <label  class="form-label">lastName</label>
+                <input type="text" class="form-control" ngModel name="lastName" placeholder="lastName">
+              </div>
+
+              <div class="mb-3">
+                <label  class="form-label">Email</label>
+                <input type="email" class="form-control" ngModel name="email" placeholder="example@example.com">
+              </div>
+
+              <div class="mb-3">
+                <label for="exampleFormControlTextarea1" class="form-label">Select multiple image</label>
+                <input type="file" class="form-control" multiple (change)="uploadFile($event)" placeholder="example@example.com">
+                <button type="button" class="btn btn-outline-success" (click)="UserUpload(myForm)">Upload</button>
+              </div>
+
+              <div class="mb-3">
+                <button type="button" class="btn btn-outline-success" (click)="Usercreate(myForm)">Create</button>
+                
+            </div>
+            </form>
+        </div>
+    
+    </div>
+</div>
